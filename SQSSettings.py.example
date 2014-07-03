@@ -1,0 +1,4 @@
+aws_access_key=''
+aws_secret_key=''
+sqs_queue_name=''
+sqs_output_channels=['#systems']
