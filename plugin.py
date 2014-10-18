@@ -42,7 +42,7 @@ class SupySQSMessenger(callbacks.Plugin):
         """Retrieve, output and parse messages fed from the SQS queue."""
         for current_message in self.message_output_queue:
             try:
-                cur_message_string = json.loads(current_message.get_body())['Message']
+                cur_message_string = json.loads(current_message.get_body().replace("\r","\n"))['Message']
             except:
                 cur_message_string = current_message.get_body()
             try:
