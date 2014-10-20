@@ -51,7 +51,7 @@ class SupySQSMessenger(callbacks.Plugin):
                 message_lines = cur_message_string
             for cur_channel in SQSSettings.sqs_output_channels:
                 for cur_line in message_lines:
-                    self.irc_object.queueMsg(ircmsgs.privmsg(cur_channel, ' '.join([i if ord(i) < 128 else ' ' for i in cur_line])))
+                    self.irc_object.queueMsg(ircmsgs.privmsg(cur_channel, ''.join([i if ord(i) < 128 else ' ' for i in cur_line])))
             self.sqs_queue.delete_message(current_message)
         self.message_output_queue = []
 
